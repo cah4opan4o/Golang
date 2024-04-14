@@ -34,14 +34,14 @@ func main() {
 	passThrough := func() {
 		counter.Growth()
 		fmt.Printf("Человек прошел через турникет. Текущее количество прошедших: %d\n", counter.Value())
-		time.Sleep(time.Second) // Имитация времени прохода
+		time.Sleep(5 * time.Second) // Имитация времени прохода
 	}
 
 	// запуск нескольких горутин
-	for i := 1; i <= 10; i++ {
+	for i := 1; i <= 10000; i++ {
 		go passThrough()
 	}
 
-	time.Sleep(10 * time.Second)
+	time.Sleep(2 * time.Second)
 	fmt.Printf("Всего человек прошло через турникет: %d\n", counter.Value())
 }
